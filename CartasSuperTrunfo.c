@@ -5,7 +5,7 @@
 int main() {
      char estado1, codigo1[4], nome1[50], estado2, codigo2[4], nome2[50];
      int populacao1, ponTuristicos1, populacao2, ponTuristicos2;
-     float area1, pib1, area2, pib2;
+     float area1, pib1, area2, pib2, densoPop1, densoPop2, pibCapita1, pibCapita2;
 
      printf("Digite as seguintes informações da carta 1: \n\n");
 
@@ -38,6 +38,12 @@ int main() {
      printf("Número de pontos turísticos: ");
      scanf("%d", &ponTuristicos1);
 
+     //Calculando a densidade populacional e PIB per capita:
+     densoPop1 = populacao1 / area1;
+
+     pibCapita1 = (pib1 * 1000000000) / populacao1;
+     //Já que o usuário coloca o valor em bilhões, temos que multiplicar o valor da variável.
+
      printf("\n\nDigite as seguintes informações da carta 2: \n\n");
      scanf("%*c"); //EXTREMAMENTE importante pra o código não pular
 
@@ -62,15 +68,25 @@ int main() {
      printf("Número de pontos turísticos: ");
      scanf("%d", &ponTuristicos2);
 
+     //Calculando a densidade populacional e PIB per capita:
+     densoPop2 = populacao2 / area2;
+
+     pibCapita2 = (pib2 * 1000000000) / populacao2;
+
+     //Imprimindo resultados:
      printf("\nCarta 1:\n");
      printf("Estado: %c \n", estado1);
      printf("Código: %s \nNome: %s \nPopulação: %d", codigo1, nome1, populacao1);
      printf("\nÁrea: %.2fKm² \nPIB: R$ %.2f bilhões \nPontos turísticos: %d", area1, pib1, ponTuristicos1);
+     printf("\nDensidade Populacional: %.2f hab/km²", densoPop1);
+     printf("\nPIB per Capita: R$ %.2f", pibCapita1);
 
      printf("\n\nCarta 2:\n");
      printf("Estado: %c \n", estado2);
      printf("Código: %s \nNome: %s \nPopulação: %d", codigo2, nome2, populacao2);
      printf("\nÁrea: %.2fKm² \nPIB: R$ %.2f bilhões \nPontos turísticos: %d", area2, pib2, ponTuristicos2);
+     printf("\nDensidade Populacional: %.2f hab/km²", densoPop2);
+     printf("\nPIB per Capita: R$ %.2f", pibCapita2);
 
      return 0;
 }
